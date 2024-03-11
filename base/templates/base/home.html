@@ -1,0 +1,22 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<h1>Home</h1>
+
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+    </tr>
+    {% for room in rooms %}
+    <tr>
+        <td><a href="{%  url 'room' room.id %}">{{ room.name }}</a></td>
+        <td>{{ room.email }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<a href="/new">Create a new user</a><ctrl63> <ctrl63> 
+
+{% endblock content %}
