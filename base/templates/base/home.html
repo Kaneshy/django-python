@@ -4,19 +4,19 @@
 <h1>Home</h1>
 
 
-<table>
-    <tr>
-        <th>Name</th>
-        <th>Email</th>
-    </tr>
+<section>
+    <a href="{% url 'create-room' %}">CREATE ROOM</a>
     {% for room in rooms %}
-    <tr>
-        <td><a href="{%  url 'room' room.id %}">{{ room.name }}</a></td>
-        <td>{{ room.email }}</td>
-    </tr>
+    <div>
+        <a href="{% url 'update-room' room.id %}">Edit</a>
+        <a href="{% url 'delete-room' room.id %}">Delete</a>
+        <span>@{{room.host.username}}</span>
+        <h2><a href="{%  url 'room' room.id %}">{{ room.name }}</a></h2>
+        <small>{{room.topic.name}}</small>
+        <hr>
+    </div>
     {% endfor %}
-</table>
+</section>
 
-<a href="/new">Create a new user</a><ctrl63> <ctrl63> 
 
 {% endblock content %}
